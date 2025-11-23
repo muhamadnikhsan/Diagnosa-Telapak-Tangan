@@ -1,0 +1,7 @@
+{
+  "name": "Diagnosa Telapak Tangan - Laoshi Muhamad Ikhsan",
+  "description": "Sistem analisis visual dan pola diagnostik",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
