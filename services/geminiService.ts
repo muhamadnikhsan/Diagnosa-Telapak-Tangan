@@ -15,7 +15,8 @@ const resizeImage = async (base64Str: string): Promise<string> => {
     img.onload = () => {
       let width = img.width;
       let height = img.height;
-      const MAX_SIZE = 1024; // Limit max dimension to 1024px
+      // Reduced to 800px to prevent XHR Error Code 6 (Payload too large)
+      const MAX_SIZE = 800; 
 
       if (width > MAX_SIZE || height > MAX_SIZE) {
         if (width > height) {
@@ -33,8 +34,8 @@ const resizeImage = async (base64Str: string): Promise<string> => {
       const ctx = canvas.getContext('2d');
       if (ctx) {
         ctx.drawImage(img, 0, 0, width, height);
-        // Compress to JPEG with 0.7 quality to ensure small payload
-        resolve(canvas.toDataURL('image/jpeg', 0.7)); 
+        // Compress to JPEG with 0.5 quality to ensure small payload
+        resolve(canvas.toDataURL('image/jpeg', 0.5)); 
       } else {
         resolve(base64Str);
       }
@@ -106,7 +107,7 @@ export const analyzeImages = async (request: AnalysisRequest): Promise<string> =
     let msg = "Terjadi kesalahan saat menghubungi layanan AI.";
     const errString = error.toString();
     
-    if (errString.includes("413") || errString.includes("too large") || errString.includes("xhr")) {
+    if (errString.includes("413") || errString.includes("too large") || errString.includes("xhr") || errString.includes("code: 6")) {
         msg = "Ukuran foto terlalu besar atau koneksi tidak stabil. Sistem telah mencoba mengkompresi foto, namun masih gagal. Silakan coba gunakan foto dengan resolusi lebih rendah.";
     } else if (errString.includes("403") || errString.includes("API key")) {
         msg = "Masalah autentikasi API Key. Pastikan konfigurasi benar.";

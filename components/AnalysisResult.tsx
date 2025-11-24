@@ -81,7 +81,15 @@ export const AnalysisResult: React.FC<AnalysisResultProps> = ({ result, onReset 
         </div>
       </div>
       
-      <div className="p-8 prose prose-emerald max-w-none prose-headings:font-bold prose-h2:text-emerald-700 prose-strong:text-slate-800 text-slate-700">
+      <div className="p-8 prose prose-emerald max-w-none 
+        prose-headings:font-bold 
+        prose-h2:text-emerald-800 prose-h2:border-b prose-h2:border-emerald-200 prose-h2:pb-4 prose-h2:mt-12 prose-h2:mb-6
+        prose-h3:text-emerald-700 prose-h3:mt-10 prose-h3:mb-4
+        prose-strong:text-slate-900 prose-strong:font-bold
+        prose-p:text-slate-700 prose-p:leading-relaxed prose-p:mb-6
+        prose-li:text-slate-700 prose-li:my-2
+        prose-ul:my-6 prose-ol:my-6
+        prose-hr:my-12 prose-hr:border-slate-200 prose-hr:border-t-2">
         <ReactMarkdown>{result}</ReactMarkdown>
       </div>
 

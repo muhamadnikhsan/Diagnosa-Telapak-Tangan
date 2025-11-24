@@ -77,10 +77,9 @@ function App() {
         {/* Intro */}
         {!result && (
           <div className="mb-8 text-center">
-            <h2 className="text-3xl font-bold text-slate-800 mb-2">Diagnostik Telapak Tangan AI</h2>
+            <h2 className="text-3xl font-bold text-slate-800 mb-2">Diagnostik Telapak Tangan</h2>
             <p className="text-slate-600 max-w-2xl mx-auto">
-              Analisis kesehatan holistik menggunakan pendekatan Perubatan Jawi, Unani, TCM, dan Sujok.
-              Silakan isi data pasien dan unggah foto untuk memulai.
+              Analisis kesehatan holistik menggunakan pendekatan sistem analisis pola diagnostik terintegrasi. Silakan isi data pasien dan unggah foto untuk memulai.
             </p>
           </div>
         )}
@@ -111,19 +110,9 @@ function App() {
             {/* Left Column: Data Input */}
             <div className="lg:col-span-2 space-y-6">
               <PatientForm data={patientData} onChange={handleDataChange} />
-              
-              <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                <button 
-                  onClick={handleAnalyze}
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg transform transition hover:-translate-y-1 flex items-center justify-center gap-3 text-lg"
-                >
-                  <Search className="w-6 h-6" />
-                  Proses Analisa Diagnostik
-                </button>
-              </div>
             </div>
 
-            {/* Right Column: Images */}
+            {/* Right Column: Images & Action Button */}
             <div className="space-y-6">
               <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
                 <h3 className="font-semibold text-slate-800 mb-4 flex items-center gap-2">
@@ -147,6 +136,16 @@ function App() {
                 <p className="text-xs text-slate-400 mt-4 leading-relaxed">
                   *Pastikan pencahayaan cukup dan foto fokus untuk hasil akurasi maksimal. Hindari bayangan gelap pada area telapak.
                 </p>
+              </div>
+
+              <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                <button 
+                  onClick={handleAnalyze}
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg transform transition hover:-translate-y-1 flex items-center justify-center gap-3 text-lg"
+                >
+                  <Search className="w-6 h-6" />
+                  Proses Analisa Diagnostik
+                </button>
               </div>
             </div>
           </div>
