@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { PatientForm } from './components/PatientForm';
@@ -103,7 +104,12 @@ function App() {
             <p className="text-slate-500 mt-2">AI sedang memeriksa tanda-tanda visual dan korelasi medis.</p>
           </div>
         ) : result ? (
-          <AnalysisResult result={result} onReset={handleReset} />
+          <AnalysisResult 
+            result={result} 
+            palmImage={palmImage}
+            backImage={backImage}
+            onReset={handleReset} 
+          />
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             
